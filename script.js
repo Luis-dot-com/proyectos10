@@ -313,7 +313,7 @@ botones.forEach(i => {
     if (i.id === 'igual') {
       try{
         const resultado = String(eval(pantalla.textContent));
-        pantalla.textContent = resultado === 'NaN' ? 'ERROR' : resultado;
+        pantalla.textContent = (resultado === 'NaN' || resultado === 'Infinity') ? 'ERROR' : resultado;
       } catch{
         pantalla.textContent = 'ERROR';
       }
