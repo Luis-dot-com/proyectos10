@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <!-- Fuente de letra Sans Neue -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+    <!-- Iconos -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <!-- Precargar el stylesheet y el script -->
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="preload" href="script.js" as="script"/>
+    <!-- Stylesheet y el favicon -->
+    <link href="styles.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <title>Javascript con T&F</title>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav>
+      <div id="left">
+        <div id="menu">
+          <i class="bi bi-list"></i>
+        </div>
+        <span class="nav-text">Proyectos</span>
+      </div>
+      <div id="right">
+        <img src="images/logo1.png" alt="">
+        <span class="nav-text">T&F™</span>
+        <img src="images/logo2.png" alt="">
+      </div>
+    </nav>
+    <!-- Sidebar -->
+    <div id="sidebar">
+      <ul id="lista-nav">
+        <li class="iconos-nav boton-proyecto-0 selected">
+          <i class="bi bi-house"></i>
+          <span>Inicio</span>
+        </li>
+        <li class="iconos-nav boton-proyecto-1">
+          <i class="bi bi-plus-slash-minus"></i>
+          <span>Contador</span>
+        </li>
+        <li class="iconos-nav boton-proyecto-2">
+          <i class="bi bi-card-checklist"></i>
+          <span>Lista de Tareas</span>
+        </li>
+        <li class="iconos-nav boton-proyecto-3">
+          <i class="bi bi-123"></i>
+          <span>Adivina el Número</span>
+        </li>
+        <li class="iconos-nav boton-proyecto-4">
+          <i class="bi bi-calculator"></i>
+          <span>Calculadora</span>
+        </li>
+        <li class="iconos-nav boton-proyecto-5">
+          <i class="bi bi-hash"></i>
+          <span>Color Alteatorio</span>
+        </li>
+        <li class="iconos-nav boton-proyecto-6">
+          <i class="bi bi-alarm"></i>
+          <span>Temporizador</span>
+        </li>
+        <li class="iconos-nav boton-proyecto-7">
+          <i class="bi bi-lock"></i>
+          <span>Contraseñas</span>
+        </li>
+        <li class="iconos-nav boton-proyecto-8">
+          <i class="bi bi-circle-half"></i>
+          <span>Modo Oscuro/Claro</span>
+        </li>
+        <li class="iconos-nav boton-proyecto-9">
+          <i class="bi bi-joystick"></i>
+          <span>Piedra, Papel o Tijera</span>
+        </li>
+        <li class="iconos-nav boton-proyecto-10">
+          <i class="bi bi-images"></i>
+          <span>Galeria</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Main -->
+
+    <main id="main">
+      <!-- Landing Page -->  
+      <section id="proyecto0" class="seccion display">
+        <!-- Header -->
+        <header>  
+          <div class="header-left header-div">
+            <div>
+              <h1 id="header-titulo">El Reto de los 10 Proyectos de JavaScript</h1>
+              <h2 id="header-autor">Luis Marquez</h2>
+            </div>
+            <p id="header-descripcion">Proyectos simples de JavaScript para el aprendizaje de la elaboracion de paginas web haciendo uso del localStorage.<br>Con nuestras anfitrionas:<br> <strong>Trixiel y Felicra</strong></p>
+            <a href="#lista-proyectos">
+              <button class="boton1">Comenzar</button>
+            </a>
+          </div>
+          <div class="header-right header-div">
+              <img src="images/header_draw.png">
+          </div>
+        </header>
+        <!-- Lista de proyectos en el Landing page -->
+        <div id="lista-proyectos">
+          <!-- Lista: Proyecto 1 -->
+          <div class="proyecto-container">
+            <h1 class="proyecto-number">Proyecto 1</h1>
+            <div class="proyecto-info">
+              <div class="proyecto-left"><img src="images/proyecto1_draw.png"></div>
+              <div class="proyecto-right">
+                <h2>Contador inteligente</h2>
+                <div class="proyecto-right-above">
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste sint hic sed minus ab esse adipisci, cumque ratione natus velit qui quod earum doloremque in dolores possimus, vel soluta sequi?</p>
+                  <button class="boton-proyecto-1 boton1">Ver</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Lista: Proyecto 2 -->
+          <div class="proyecto-container">
+            <h1 class="proyecto-number">Proyecto 2</h1>
+            <div class="proyecto-info">
+              <div class="proyecto-left"><img src="images/proyecto2_draw.png"></div>
+              <div class="proyecto-right">
+                <h2>Lista de tareas</h2>
+                <div class="proyecto-right-above">
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste sint hic sed minus ab esse adipisci, cumque ratione natus velit qui quod earum doloremque in dolores possimus, vel soluta sequi?</p>
+                  <button class="boton-proyecto-2 boton1">Ver</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Lista: Proyecto 3 -->
+          <div class="proyecto-container">
+            <h1 class="proyecto-number">Proyecto 3</h1>
+            <div class="proyecto-info">
+              <div class="proyecto-left"><img src="images/proyecto3_draw.png"></div>
+              <div class="proyecto-right">
+                <h2>Adivina el numero</h2>
+                <div class="proyecto-right-above">
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste sint hic sed minus ab esse adipisci, cumque ratione natus velit qui quod earum doloremque in dolores possimus, vel soluta sequi?</p>
+                  <button class="boton-proyecto-3 boton1">Ver</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Lista: Proyecto 4 -->
+          <div class="proyecto-container">
+            <h1 class="proyecto-number">Proyecto 4</h1>
+            <div class="proyecto-info">
+              <div class="proyecto-left"><img src="images/proyecto4_draw.png"></div>
+              <div class="proyecto-right">
+                <h2>Calculadora basica</h2>
+                <div class="proyecto-right-above">
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste sint hic sed minus ab esse adipisci, cumque ratione natus velit qui quod earum doloremque in dolores possimus, vel soluta sequi?</p>
+                  <button class="boton-proyecto-4 boton1">Ver</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Lista: Proyecto 5 -->
+          <div class="proyecto-container">
+            <h1 class="proyecto-number">Proyecto 5</h1>
+            <div class="proyecto-info">
+              <div class="proyecto-left"><img src="images/proyecto5_draw.png"></div>
+              <div class="proyecto-right">
+                <h2>Colores aleatorios</h2>
+                <div class="proyecto-right-above">
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste sint hic sed minus ab esse adipisci, cumque ratione natus velit qui quod earum doloremque in dolores possimus, vel soluta sequi?</p>
+                  <button class="boton-proyecto-5 boton1">Ver</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Lista: Proyecto 6 -->
+          <div class="proyecto-container">
+            <h1 class="proyecto-number">Proyecto 6</h1>
+            <div class="proyecto-info">
+              <img class="proyecto-left"src="images/proyecto6_draw.png">
+              <div class="proyecto-right">
+                <h2>Temporizador</h2>
+                <div class="proyecto-right-above">
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste sint hic sed minus ab esse adipisci, cumque ratione natus velit qui quod earum doloremque in dolores possimus, vel soluta sequi?</p>
+                  <button class="boton-proyecto-6 boton1">Ver</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Lista: Proyecto 7 -->
+          <div class="proyecto-container">
+            <h1 class="proyecto-number">Proyecto 7</h1>
+            <div class="proyecto-info">
+              <img class="proyecto-left" src="images/proyecto7_draw.png">
+              <div class="proyecto-right">
+                <h2>Generador de contraseñas</h2>
+                <div class="proyecto-right-above">
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste sint hic sed minus ab esse adipisci, cumque ratione natus velit qui quod earum doloremque in dolores possimus, vel soluta sequi?</p>
+                  <button class="boton-proyecto-7 boton1">Ver</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Lista: Proyecto 8 -->
+          <div class="proyecto-container">
+            <h1 class="proyecto-number">Proyecto 8</h1>
+            <div class="proyecto-info">
+              <img class="proyecto-left" src="images/proyecto8_draw.png">
+              <div class="proyecto-right">
+                <h2>Modo oscuro/claro</h2>
+                <div class="proyecto-right-above">
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste sint hic sed minus ab esse adipisci, cumque ratione natus velit qui quod earum doloremque in dolores possimus, vel soluta sequi?</p>
+                  <button class="boton-proyecto-8 boton1">Ver</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Lista: Proyecto 9 -->
+          <div class="proyecto-container">
+            <h1 class="proyecto-number">Proyecto 9</h1>
+            <div class="proyecto-info">
+              <img class="proyecto-left" src="images/proyecto9_draw.png">
+              <div class="proyecto-right">
+                  <h2>Piedra, papel o tijera</h2>
+                <div class="proyecto-right-above">
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste sint hic sed minus ab esse adipisci, cumque ratione natus velit qui quod earum doloremque in dolores possimus, vel soluta sequi?</p>
+                  <button class="boton-proyecto-9 boton1">Ver</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Lista: Proyecto 10 -->
+          <div class="proyecto-container">
+            <h1 class="proyecto-number">Proyecto 10</h1>
+            <div class="proyecto-info">
+              <img class="proyecto-left" src="images/proyecto10_draw.png">
+              <div class="proyecto-right">
+                  <h2>Galería de Imágenes con Filtros</h2>
+                <div class="proyecto-right-above">
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste sint hic sed minus ab esse adipisci, cumque ratione natus velit qui quod earum doloremque in dolores possimus, vel soluta sequi?</p>
+                  <button class="boton-proyecto-10 boton1">Ver</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="boton-respeto-container">
+            <button id="boton-respeto"> <i class="bi bi-volume-up-fill"></i> </button>
+            <p>(boton de respeto obligatorio)</p>
+          </div>
+        </div>
+      </section>
+      <!-- Proyecto 1: Contador inteligente -->
+      <section id="proyecto1" class="seccion">
+        <div class="algo centrado">
+          <div id="contador-container">
+            <div id="contador-above">
+              <img class="contador-draw" id="contador-negative" src="images/negative_placeholder.webp" alt="">
+              <div id="contador">0</div>
+              <img class="contador-draw" id="contador-angel" src="images/angel_placeholder.png" alt="">
+            </div>
+            <div id="contador-below">
+              <button type="button" id="contador-menos"><i class="bi bi-dash-lg"></i></button>
+              <button type="button" id="contador-restart"><i class="bi bi-0-circle"></i></button>
+              <button type="button" id="contador-mas"><i class="bi bi-plus-lg"></i></button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Proyecto 2: Lista de tereas (to-do-list) -->
+      <section id="proyecto2" class="seccion">
+        <div class="algo centrado">
+          <div id="todolist-container">
+            <h1>Lista de tareas</h1>
+            <input id="ingresar-tarea" placeholder="Escribe una tarea">
+            <button id="todolist-boton" type="submit">Crear tarea</button>
+            <div id="todolist">
+            <!-- Tareas -->
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Proyecto 3: Adivina el numero -->
+      <section id="proyecto3" class="seccion">
+        <div class="algo centrado">
+          <div id="adivinar-container">
+            <span id="adivinar-respuesta">JAMAS ADIVINARAS MI NUMERO</span>
+            <!-- <img src="images/fneutro_placeholder.jpg" id="adivinar-draw" alt="Robo-Trixiel"> -->
+            <div id="adivinar-etc">
+              <div id="adivinar-draw"></div>
+              <div id="adivinar-interactivo">
+                <div id="input-container">
+                  <input type="number" id="adivinar-input" min="0" max="100" placeholder="0">
+                  <p id="adivinar-intentos">Intentos: 0</p>
+                </div>
+                <div id="adivinar-botones">
+                  <button type="button" id="adivinar-boton"><span>Adivinar</span></button>
+                  <button type="button" id="adivinar-reiniciar"><span>Nuevo Juego</span></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Proyecto 4: Calculadora Basica -->
+      <section id="proyecto4" class="seccion">
+        <div class="algo centrado">
+          <div class="calculadora">
+            <div class="pantalla">0</div>
+            <button class="btncalc" id="c">C</button>
+            <button class="btncalc" id="borrar">B</button>
+            <button class="btncalc">/</button>
+            <button class="btncalc">*</button>
+            <button class="btncalc">7</button>
+            <button class="btncalc">8</button>
+            <button class="btncalc">9</button>
+            <button class="btncalc">-</button>
+            <button class="btncalc">4</button>
+            <button class="btncalc">6</button>
+            <button class="btncalc">6</button>
+            <button class="btncalc">+</button>
+            <button class="btncalc">1</button>
+            <button class="btncalc">2</button>
+            <button class="btncalc">3</button>
+            <button class="btncalc" id="igual">=</button>
+            <button class="btncalc" id="cero">0</button>
+          </div>
+        </div>
+      </section>
+      <!-- Proyecto 5: Hex aleatorio -->
+      <section id="proyecto5" class="seccion">
+        <div class="algo centrado">
+          <div id="hex-etc">
+            <img src="images/hex-draw.png" alt="">
+            <div id="hex-container" class="centrado">
+              <p id="hex">#------</p>
+              <div id="hex-botones">
+                <button id="hex-boton">Cambiar</button>
+                <button id="hex-copiar">Copiar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="proyecto6" class="proyecto seccion">
+      </section>
+      <section id="proyecto7" class="seccion">
+      </section>
+      <section id="proyecto8" class="seccion">
+        <div class="algo centrado">
+          <div class="modo-oscuro">
+            <div class="modo-oscuro-circulo">
+              <img id="modo-oscuro-sol" src="images/brightness-high-fill.svg" alt="sol">
+              <img id="modo-oscuro-luna" src="images/moon-fill.svg" alt="luna">
+            </div>
+          </div>
+          </div>
+        </div>
+      </section>
+      <section id="proyecto9" class="seccion">
+        <div class="algo centrado">
+          <div id="pelea-container">
+            <div id="pelea">
+              <div class="pelea-draw" id="jugador-draw"></div>
+              <div id="pelea-center">
+                <div id="pelea-resultado">VERSUS</div>
+                <div id="pelea-botones">
+                  <button id="boton-piedra">Pi</button>
+                  <button id="boton-papel">Pa</button>
+                  <button id="boton-tijera">Ti</button>
+                </div>
+                <div id="pelea-contador">0 / 0</div>
+              </div>
+              <div class="pelea-draw" id="bot-draw"></div>
+            </div>
+            <!-- <button id="reinicio" class="boton1">R</button> -->
+          </div>
+        </div>
+      </section>
+      <section id="proyecto10" class="proyecto seccion">
+      </section>
+    </main>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
