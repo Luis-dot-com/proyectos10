@@ -477,7 +477,7 @@ PROYECTOS
   height: 60px;
   padding: 10px;
   color: white;
-  background-color: #1312A8;
+  background-color: var(--color-felicra);
   font-size: 22px;
   border-radius: 20px;
   border: none;
