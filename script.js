@@ -312,15 +312,22 @@ botones.forEach(i => {
     }
     if (i.id === 'igual') {
       try{
-        pantalla.textContent = eval(pantalla.textContent);
+        const resultado = String(eval(pantalla.textContent));
+        pantalla.textContent = resultado === 'NaN' ? 'ERROR' : resultado;
       } catch{
         pantalla.textContent = 'ERROR';
       }
       return;
     }
-    if(pantalla.textContent === '0' || pantalla.textContent === 'ERROR'){
+    if(pantalla.textContent === '0'){
+      if(/[+\-*/]/.test(botonApretado)){
+        pantalla.textContent += botonApretado;
+      } else {
+        pantalla.textContent = botonApretado;
+      }
+    } else if(pantalla.textContent === 'ERROR'){
       pantalla.textContent = botonApretado;
-    } else{
+    } else {
       pantalla.textContent += botonApretado;
     }
   })
@@ -394,7 +401,6 @@ if(localStorage.getItem('modoOscuro') === 'true'){
 }
 if(localStorage.getItem('modoOscuro') === 'true' || (localStorage.getItem('ultimoHex') !== null)){
   document.documentElement.classList.add('no-transicion');
-
   requestAnimationFrame(() => {
     requestAnimationFrame(() => {
       document.documentElement.classList.remove('no-transicion');

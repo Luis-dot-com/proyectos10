@@ -667,6 +667,7 @@ PROYECTOS
   border-radius: 0.5rem;
   margin-bottom: 1.5rem;
   font-weight: bold;
+  overflow-x: overlay;
 }
 .btncalc{
   background-color: var(--color-felicra-dark);
