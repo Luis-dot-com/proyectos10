@@ -383,8 +383,6 @@ const modoOscuro = document.querySelector('.modo-oscuro');
 modoOscuro.addEventListener('click', modoOscuroToggle);
 
 if(localStorage.getItem('modoOscuro') === 'true'){
-  document.documentElement.classList.add('no-transicion');
-
   allSeccion.forEach((i) => {
     if (i.id !== 'seccion5'){
       i.classList.add('fondo-oscuro')
@@ -392,6 +390,10 @@ if(localStorage.getItem('modoOscuro') === 'true'){
   })
   document.querySelector('nav').classList.add('fondo-oscuro');
   document.getElementById('sidebar').classList.add('fondo-oscuro');
+
+}
+if(localStorage.getItem('modoOscuro') === 'true' || (localStorage.getItem('ultimoHex') !== null)){
+  document.documentElement.classList.add('no-transicion');
 
   requestAnimationFrame(() => {
     requestAnimationFrame(() => {
