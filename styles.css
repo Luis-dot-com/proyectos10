@@ -36,6 +36,9 @@ body {
 button{
   user-select: none;
 }
+a {
+  text-decoration: none;
+}
 /* Navbar */
 nav {
   z-index: 200;
@@ -153,6 +156,7 @@ nav {
 /* Inicio */
 
 /* header */
+
 header{
   min-height: 100vh;
   width: 100%;
@@ -160,7 +164,6 @@ header{
   display: flex;
   flex-wrap: wrap;
   background-color: var(--color-felicra-light);
-  display: flex;
   align-items: center;
 }
 .header-div{
@@ -189,6 +192,7 @@ header{
 .boton1{
   height: 4rem;
   width: 50%;
+  min-width: 14rem;
   background-color: var(--color-felicra);
   border: none;
   font-size: 2rem;
@@ -204,14 +208,49 @@ header{
   width: 450px;
   height: 450px;
 }
+#boton-right{
+  display: none;
+}
 /* Header responsive */
 @media (width <  1100px){
   .header-left{
     padding-right: 0;
+    height: auto;
+  }
+  #header-titulo{
+    font-size: 2.3rem;
   }
   .header-right{
     padding-left: 0;
     padding-right: 0;
+  }
+}
+@media (width <  1000px){
+  header{
+    flex-direction: column;
+  }
+  .header-left{
+    padding: 0;
+    text-align: center;
+    margin-top: 4rem;
+    max-width: 100%;
+    gap: 4rem;
+  }
+  #boton-left{
+    display: none;
+  }
+  .header-right{
+    padding: 0;
+  }
+  #boton-right{
+    display: block;
+    margin: 4rem 0;
+  }
+  .header-div{
+    width: auto;
+  }
+  .header-right img{
+    max-width: 100%;
   }
 }
 
@@ -404,8 +443,8 @@ PROYECTOS
   width: 100%;
 }
 #contador-below button{
-  width: 5.5rem;
-  height: 5.5rem;
+  width: 6rem;
+  height: 6rem;
   border-radius: 100%;
   font-size: 2rem;
   border: none;
@@ -440,6 +479,9 @@ PROYECTOS
     gap: 4rem;
     margin: 2rem 0;
   }
+  #contador-container{
+    width: 100%;
+  }
 }
 
 
@@ -460,6 +502,7 @@ PROYECTOS
 #todolist-container h1{
   font-size: 50px;
   font-weight: bold;
+  text-align: center;
 }
 /* Input */
 #ingresar-tarea {
@@ -903,12 +946,13 @@ nav.fondo-oscuro #right{
   font-size: 3.6rem;
 }
 .pelea-draw{
-  width: 250px;
-  height: 250px;
+  width: 275px;
+  height: 275px;
   background-color: red;
 }
 #pelea-contador{
   color: gray;
+  font-size: 2.45rem;
 }
 #proyecto10{
   background-color: #066300;

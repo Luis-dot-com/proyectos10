@@ -281,6 +281,25 @@ function adivinar(){
 }
 
 botonAdivinar.addEventListener('click', adivinar);
+inputAdivinar.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') {
+    adivinar()
+  }
+});
+inputAdivinar.addEventListener('input', () =>{
+  if (inputAdivinar.value > 100){
+    inputAdivinar.value = 60;
+  } else if(inputAdivinar.value < 0){
+    inputAdivinar.value = 0;
+  }
+})
+inputAdivinar.addEventListener('input', () =>{
+  if (inputAdivinar.value > 100){
+    inputAdivinar.value = 60;
+  } else if(inputAdivinar.value < 0){
+    inputAdivinar.value = 0;
+  }
+})
 botonNuevoJuego.addEventListener('click', () => {
   intentos = 0
   intentosAdivinar.innerText = 'Intentos: 0';
