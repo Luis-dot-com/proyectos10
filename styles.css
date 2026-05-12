@@ -1,3 +1,9 @@
+/* Forzar font-display swap en Bootstrap Icons */
+@font-face {
+  font-family: "bootstrap-icons";
+  font-display: swap;
+}
+
 /* Generales */
 :root{
   --color-felicra: #89C684;

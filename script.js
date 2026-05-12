@@ -125,8 +125,7 @@ const botonMas = document.getElementById('contador-mas');
 const drawNega = document.getElementById('contador-negative');
 const drawAngel = document.getElementById('contador-angel');
 
-let contadorNumero = +contador.innerText;
-console.log(contadorNumero)
+let contadorNumero = 0;
 
 function colorContador (){
   if (contadorNumero < 0){
@@ -189,20 +188,16 @@ function eliminarTarea(e) {
 
 function agregarTarea() {
   if (input.value) {
-    // Crear tarea
     let tareaNueva = document.createElement('div');
     tareaNueva.classList.add('tarea');
-    // Texto ingresado por el usuario
     let texto = document.createElement('p');
     texto.innerText = input.value;
     tareaNueva.appendChild(texto);
 
-    // Crear y agregar iconos
     let iconos = document.createElement('div')
     iconos.classList.add('iconos');
     tareaNueva.appendChild(iconos);
 
-    // Iconos
     let completar = document.createElement('i');
     completar.classList.add('bi', 'bi-check-circle-fill', 'icono-completar');
     completar.addEventListener('click', tareaCompletada)
@@ -212,9 +207,7 @@ function agregarTarea() {
     eliminar.addEventListener('click', eliminarTarea)
 
     iconos.append(completar, eliminar);
-    // Agregar tarea nueva a la lista
     listaDeTarea.appendChild(tareaNueva);
-    // Guardar lista de tareas en el localStorage
     localStorage.setItem('todolist', listaDeTarea.innerHTML);
   } else {
     alert('Por favor ingresa una tarea.')
@@ -484,7 +477,7 @@ tempoReiniciar.addEventListener('click', () => {
   tiempoRestante = 0;
   tempoDisplay.textContent = '00:00';
   tempoMensaje.textContent = '';
-  tempoPausar.textContent = 'Pausar'; // resetear texto
+  tempoPausar.textContent = 'Pausar';
 });
 
 // Proyecto 7: Contraseña
