@@ -10,6 +10,13 @@ main.addEventListener('click', () => {
   sidebar.classList.remove('menu-toggle')
 })
 
+const botonRespeto = document.getElementById('boton-respeto')
+const respeto = new Audio();
+respeto.src = "others/respeto.ogg";
+botonRespeto.addEventListener('click', () => {
+  respeto.play()
+})
+
 // Botones para navegar por las secciones (y el main)
 // Botones dentro del Sidebar
 const botonNavProyecto0 = document.querySelector('.boton-proyecto-0');
@@ -124,17 +131,17 @@ console.log(contadorNumero)
 function colorContador (){
   if (contadorNumero < 0){
     contador.style.color = '#DB4857';
-    drawNega.setAttribute('src', 'images/happynegative_placeholder.png');
-    drawAngel.setAttribute('src', 'images/sadangel_placeholder.png');
+    drawNega.setAttribute('src', 'images/mnegative_draw.png');
+    drawAngel.setAttribute('src', 'images/mangel_draw.png');
 
   } else if(contadorNumero > 0){
     contador.style.color = '#8DFF4B';
-    drawNega.setAttribute('src', 'images/angrynegative_placeholder.webp');
-    drawAngel.setAttribute('src', 'images/happyangel_placeholder.svg');
+    drawNega.setAttribute('src', 'images/bnegative_draw.png');
+    drawAngel.setAttribute('src', 'images/bangel_draw.png');
   } else{
     contador.style.color = '';
-    drawNega.setAttribute('src', 'images/negative_placeholder.webp');
-    drawAngel.setAttribute('src', 'images/angel_placeholder.png');
+    drawNega.setAttribute('src', 'images/negative_draw.png');
+    drawAngel.setAttribute('src', 'images/angel_draw.png');
   }
 }
 
@@ -246,13 +253,13 @@ function numeroEsMayor(){
   intentosAdivinar.innerText = `Intentos: ${++intentos}`;
   respuestaAdivinar.innerText = 'MI NUMERO ES MAS ALTO';
   respuestaAdivinar.style.color = '#4b7bff';
-  dibujoAdivinar.style.backgroundColor = '#4b7bff';
+  dibujoAdivinar.setAttribute('src', 'images/upadivinar_draw.png');
 }
 function numeroEsMenor() {
   intentosAdivinar.innerText = `Intentos: ${++intentos}`;
   respuestaAdivinar.innerText = 'MI NUMERO ES MAS BAJO';
   respuestaAdivinar.style.color = '#DB4857';
-  dibujoAdivinar.style.backgroundColor = '#DB4857';
+  dibujoAdivinar.setAttribute('src', 'images/downadivinar_draw.png');
 }
 function numeroAdivinado() {
   if (intentos === 0){
@@ -261,7 +268,7 @@ function numeroAdivinado() {
   intentos = 0;
   respuestaAdivinar.innerText = 'LO HAS ADIVINADO';
   respuestaAdivinar.style.color = '#8DFF4B';
-  dibujoAdivinar.style.backgroundColor = '#8DFF4B';
+  dibujoAdivinar.setAttribute('src', 'images/winadivinar_draw.png');
   numeroRandom = generarNumeroRandom();
 }
 function adivinar(){
@@ -288,18 +295,12 @@ inputAdivinar.addEventListener('keydown', (e) => {
 });
 inputAdivinar.addEventListener('input', () =>{
   if (inputAdivinar.value > 100){
-    inputAdivinar.value = 60;
+    inputAdivinar.value = 100;
   } else if(inputAdivinar.value < 0){
     inputAdivinar.value = 0;
   }
 })
-inputAdivinar.addEventListener('input', () =>{
-  if (inputAdivinar.value > 100){
-    inputAdivinar.value = 60;
-  } else if(inputAdivinar.value < 0){
-    inputAdivinar.value = 0;
-  }
-})
+
 botonNuevoJuego.addEventListener('click', () => {
   intentos = 0
   intentosAdivinar.innerText = 'Intentos: 0';
@@ -389,6 +390,200 @@ if (localStorage.getItem('ultimoHex') !== null) {
   seccion5.style.backgroundColor = localStorage.getItem('ultimoHex');
 }
 
+// Proyecto 6: Temporizador
+
+const tempoDisplay = document.getElementById('tempo-display');
+const tempoMinutos = document.getElementById('tempo-minutos');
+const tempoSegundos = document.getElementById('tempo-segundos');
+const tempoIniciar = document.getElementById('tempo-iniciar');
+const tempoPausar = document.getElementById('tempo-pausar');
+const tempoReiniciar = document.getElementById('tempo-reiniciar');
+const tempoMensaje = document.getElementById('tempo-mensaje');
+
+let tempoInterval = null;
+let tiempoRestante = 0;
+let corriendo = false;
+
+function dosDigitos(numero) {
+  if (numero < 10) {
+    return '0' + numero;
+  }
+  return '' + numero;
+}
+
+function actualizarDisplay() {
+  const mins = Math.floor(tiempoRestante / 60);
+  const segs = tiempoRestante % 60;
+  tempoDisplay.textContent = dosDigitos(mins) + ':' + dosDigitos(segs);
+}
+
+function inter() {
+  if (tiempoRestante <= 0) {
+    clearInterval(tempoInterval);
+    tempoInterval = null;
+    corriendo = false;
+    tempoMensaje.textContent = '¡Tiempo terminado!';
+    return;
+  }
+  tiempoRestante--;
+  actualizarDisplay();
+}
+
+tempoMinutos.addEventListener('input', () => {
+  if (tempoMinutos.value > 60 || tempoMinutos.value.length === 3) {
+    tempoMinutos.value = 60;
+  }
+  if (tempoMinutos.value < 0) {
+    tempoMinutos.value = 0;
+  }
+});
+
+tempoSegundos.addEventListener('input', () => {
+  if (tempoSegundos.value > 60 || tempoSegundos.value.length === 3) {
+    tempoSegundos.value = 60;
+  }
+  if (tempoSegundos.value < 0) {
+    tempoSegundos.value = 0;
+  }
+});
+
+tempoIniciar.addEventListener('click', () => {
+  if (corriendo) {
+    return;
+  }
+  const mins = parseInt(tempoMinutos.value);
+  const segs = parseInt(tempoSegundos.value);
+  tiempoRestante = mins * 60 + segs;
+  if (tiempoRestante === 0) {
+    return;
+  }
+  tempoMinutos.value = 0;
+  tempoSegundos.value = 0;
+  tempoMensaje.textContent = '';
+  corriendo = true;
+  tempoInterval = setInterval(inter, 1000);
+});
+
+tempoPausar.addEventListener('click', () => {
+  if (corriendo) {
+    clearInterval(tempoInterval);
+    tempoInterval = null;
+    corriendo = false;
+    tempoPausar.textContent = 'Reanudar';
+  } else if (!corriendo && tiempoRestante > 0) {
+    corriendo = true;
+    tempoInterval = setInterval(inter, 1000);
+    tempoPausar.textContent = 'Pausar';
+  }
+});
+
+tempoReiniciar.addEventListener('click', () => {
+  clearInterval(tempoInterval);
+  tempoInterval = null;
+  corriendo = false;
+  tiempoRestante = 0;
+  tempoDisplay.textContent = '00:00';
+  tempoMensaje.textContent = '';
+  tempoPausar.textContent = 'Pausar'; // resetear texto
+});
+
+// Proyecto 7: Contraseña
+
+const rangeContra = document.getElementById('contra-range');
+const lengthTextContra = document.getElementById('contra-range-value');
+const checkboxContra = document.querySelectorAll('.contra-elegir');
+const minusContra = document.getElementById('minusculas');
+const mayusContra = document.getElementById('mayusculas');
+const numberContra = document.getElementById('numeros');
+const symbolContra = document.getElementById('simbolos');
+const contra = document.getElementById('contra');
+const botonContra = document.getElementById('contra-generar');
+const copiarContra = document.getElementById('contra-copiar');
+
+const minusculas = 'abcdefghijklmnopqrstuvwxyz';
+const mayusculas = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+const numeros = '0123456789';
+const simbolos = '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~';
+
+let contraseñaGenerada = '';
+
+rangeContra.addEventListener('input', () => {
+  lengthTextContra.textContent = 'Tamaño: ' + rangeContra.value;
+});
+
+checkboxContra.forEach(check => {
+  check.addEventListener('change', () => {
+    let hayAlgunoMarcado = false;
+    for (let i = 0; i < checkboxContra.length; i++) {
+      if (checkboxContra[i].checked) {
+        hayAlgunoMarcado = true;
+        break;
+      }
+    }
+    if (!hayAlgunoMarcado) {
+      check.checked = true;
+    }
+  });
+});
+
+function caracterRandom(string) {
+  return string[Math.floor(Math.random() * string.length)];
+}
+
+function revolverContraseña(string) {
+  let resultado = '';
+  let array = string.split('');
+  while (array.length > 0) {
+    const indice = Math.floor(Math.random() * array.length);
+    resultado += array[indice];
+    array.splice(indice, 1);
+  }
+  return resultado;
+}
+
+function generarContraseña() {
+  const longitud = parseInt(rangeContra.value);
+  let caracteres = '';
+  let contraseña = '';
+
+  if (minusContra.checked) {
+    caracteres += minusculas;
+    contraseña += caracterRandom(minusculas);
+  }
+  if (mayusContra.checked) {
+    caracteres += mayusculas;
+    contraseña += caracterRandom(mayusculas);
+  }
+  if (numberContra.checked) {
+    caracteres += numeros;
+    contraseña += caracterRandom(numeros);
+  }
+  if (symbolContra.checked) {
+    caracteres += simbolos;
+    contraseña += caracterRandom(simbolos);
+  }
+
+  while (contraseña.length < longitud) {
+    contraseña += caracterRandom(caracteres);
+  }
+
+  contraseña = revolverContraseña(contraseña);
+  contraseñaGenerada = contraseña;
+  contra.textContent = contraseña;
+}
+
+botonContra.addEventListener('click', () => {
+  generarContraseña();
+});
+
+copiarContra.addEventListener('click', (e) => {
+  if (contraseñaGenerada !== '') {
+    navigator.clipboard.writeText(contraseñaGenerada);
+    e.target.textContent = "¡Copiado!";
+    setTimeout(() => e.target.textContent = 'Copiar', 2000);
+  }
+});
+
 // Proyecto 8: Modo oscuro/claro
 
 function modoOscuroToggle(){
@@ -436,6 +631,7 @@ const resultado = document.getElementById('pelea-resultado');
 const peleaContador = document.getElementById('pelea-contador');
 const jugadorDraw = document.getElementById('jugador-draw');
 const botDraw = document.getElementById('bot-draw');
+const botonReinicioPelea = document.getElementById('reinicio');
 
 let ganadas = 0;
 let perdidas = 0;
@@ -460,45 +656,44 @@ function ganaste(){
 }
 
 function eligesPiedra(r){
-  jugadorDraw.style.backgroundColor = 'gray';
+  jugadorDraw.setAttribute('src', 'images/j_hand-r.png')
   if (r === 0){
-    botDraw.style.backgroundColor = 'gray';
+    botDraw.setAttribute('src', 'images/b_hand-r.png');
     empate()
   }else if (r === 1){
-    botDraw.style.backgroundColor = 'blue';
+    botDraw.setAttribute('src', 'images/b_hand-p.png');
     perdiste()
   }else{
-    botDraw.style.backgroundColor = 'yellow';
+    botDraw.setAttribute('src', 'images/b_hand-s.png');
     ganaste()
   }
 }
 function eligesPapel(r){
-  jugadorDraw.style.backgroundColor = 'blue';
+  jugadorDraw.setAttribute('src', 'images/j_hand-p.png')
   if (r === 0){
-    botDraw.style.backgroundColor = 'gray';
+    botDraw.setAttribute('src', 'images/b_hand-r.png');
     ganaste()
   }else if (r === 1){
-    botDraw.style.backgroundColor = 'blue';
+    botDraw.setAttribute('src', 'images/b_hand-p.png');
     empate()
   }else{
-    botDraw.style.backgroundColor = 'yellow';
+    botDraw.setAttribute('src', 'images/b_hand-s.png');
     perdiste()
   }
 }
 function eligesTijera(r){
-  jugadorDraw.style.backgroundColor = 'yellow';
+  jugadorDraw.setAttribute('src', 'images/j_hand-s.png');
   if (r === 0){
-    botDraw.style.backgroundColor = 'gray';
+    botDraw.setAttribute('src', 'images/b_hand-r.png');
     perdiste()
   }else if (r === 1){
-    botDraw.style.backgroundColor = 'blue';
+    botDraw.setAttribute('src', 'images/b_hand-p.png');
     ganaste()
   }else{
-    botDraw.style.backgroundColor = 'yellow';
+    botDraw.setAttribute('src', 'images/b_hand-s.png');
     empate()
   }
 }
-
 
 function eleccion(j){
   if (j === 0){
@@ -519,3 +714,66 @@ botonPapel.addEventListener('click',()=>{
 botonTijera.addEventListener('click',()=>{
   eleccion(2)
 })
+botonReinicioPelea.addEventListener('click', () => {
+  ganadas = 0;
+  perdidas = 0;
+  peleaContador.innerText = '0 / 0';
+  resultado.innerText = 'VERSUS';
+  resultado.style.color = '#f59622';
+  jugadorDraw.setAttribute('src', 'images/j_hand.png');
+  botDraw.setAttribute('src', 'images/b_hand.png');
+});
+
+// Proyecto 10: Galería
+
+const galeriaItems = document.querySelectorAll('.galeria-item');
+const galeriaFiltros = document.querySelectorAll('.galeria-filtro');
+const galeriaBuscador = document.getElementById('galeria-buscador');
+const galeriaModal = document.getElementById('galeria-modal');
+const galeriaModalImg = document.getElementById('galeria-modal-img');
+const galeriaModalNombre = document.getElementById('galeria-modal-nombre');
+
+let filtroActivo = 'Todas';
+
+function aplicarFiltros() {
+  const busqueda = galeriaBuscador.value.toLowerCase();
+  for (let i = 0; i < galeriaItems.length; i++) {
+    const item = galeriaItems[i];
+    const nombre = item.getAttribute('data-nombre').toLowerCase();
+    const categoria = item.getAttribute('data-categoria');
+
+    const coincideCategoria = filtroActivo === 'Todas' || categoria === filtroActivo;
+    const coincideBusqueda = nombre.includes(busqueda);
+
+    if (coincideCategoria && coincideBusqueda) {
+      item.classList.remove('galeria-oculta');
+    } else {
+      item.classList.add('galeria-oculta');
+    }
+  }
+}
+
+galeriaFiltros.forEach(boton => {
+  boton.addEventListener('click', () => {
+    filtroActivo = boton.value;
+    aplicarFiltros();
+  });
+});
+
+galeriaBuscador.addEventListener('input', () => {
+  aplicarFiltros();
+});
+
+for (let i = 0; i < galeriaItems.length; i++) {
+  galeriaItems[i].addEventListener('click', () => {
+    const img = galeriaItems[i].querySelector('.galeria-img');
+    const nombre = galeriaItems[i].getAttribute('data-nombre');
+    galeriaModalImg.src = img.src;
+    galeriaModalNombre.textContent = nombre;
+    galeriaModal.classList.add('galeria-modal-abierto');
+  });
+}
+
+galeriaModal.addEventListener('click', () => {
+  galeriaModal.classList.remove('galeria-modal-abierto');
+});

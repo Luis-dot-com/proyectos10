@@ -424,7 +424,8 @@ PROYECTOS
 #contador{
   width: 350px;
   height: 175px;
-  background-color: var(--color-felicra-dark);
+  background-color: black;
+  border: 10px solid lightgray;
   border-radius: 50px;
   font-size: 5rem;
   color: lightgrey;
@@ -442,23 +443,10 @@ PROYECTOS
   justify-content: space-evenly;
   width: 100%;
 }
-#contador-below button{
-  width: 6rem;
-  height: 6rem;
-  border-radius: 100%;
-  font-size: 2rem;
-  border: none;
+#contador-below img{
   cursor: pointer;
 }
-#contador-menos{
-  background-color: #DB4857;
-}
-#contador-restart{
-  background-color: lightgray;
-}
-#contador-mas{
-  background-color: #8DFF4B;
-}
+
 
 @media (width < 900px){
   .contador-draw{
@@ -600,11 +588,7 @@ PROYECTOS
 #adivinar-respuesta{
   font-size: 1.6rem;
 }
-#adivinar-draw{
-  min-height: 300px;
-  min-width: 250px;
-  background-color: gray;
-}
+
 #adivinar-interactivo{
   display: flex;
   flex-direction: column;
@@ -815,31 +799,61 @@ PROYECTOS
     font-size: 15px;
   }
 }
-
-#proyecto6{
-  background-color: cornflowerblue;
+/* Proyecto 6 */
+#tempo-container{
+  background-color: white;
 }
-#proyecto7{
-  background-color: darkgrey;
+/* Proyecto 7 */
+#contra-container{
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#contra-inputs{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#contra-botones{
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+#contra{
+  height: 3rem;
 }
 /* Proyecto 8 */
+#modo-oscuro-container{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-evenly;
+}
 .modo-oscuro{
   width: 250px;
   height: 125px;
   display: flex;
   align-items: center;
   border-radius: 999px;
-  background-color: #DFDEDE;
+  background-color: #2c2e2c;
   user-select: none;
   transition: background-color 0.6s ease;
   cursor: pointer;
 }
-@media (width < 500px) {
+@media (width < 800px) {
   .modo-oscuro{
-    width: 150px;
-    height: 75px;
+    width: 120px;
+    height: 60px;
   }
-  
+  #modo-oscuro-container{
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+  #modo-oscuro-container > img{
+    width: 200px;
+    height: 200px;
+  }
 }
 #proyecto8.fondo-oscuro .modo-oscuro{
   background-color: white;
@@ -904,25 +918,26 @@ nav.fondo-oscuro #right{
 }
 
 /* Proyecto 9 */
-#proyecto9 > div{
-  border: 2px solid red;
+#pelea-container #reinicio{
+  width: 12rem;
 }
 #pelea-container{
-  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4rem;
-}
-#pelea-container #reinicio{
-  width: 12rem;
 }
 #pelea{
   width: 100%;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  flex-wrap: wrap;
+  gap: 4rem;
+}
+@media (width < 1000px){
+  #pelea{
+    flex-direction: column;
+    gap: 2rem;
+  }
 }
 #pelea-center{
   display: flex;
@@ -936,24 +951,92 @@ nav.fondo-oscuro #right{
   gap: 2rem;
 }
 #pelea-botones button{
-  width: 5.5rem;
-  height: 5.5rem;
-  padding: 0.5rem;
+  width: 5rem;
+  height: 5rem;
   border-radius: 50%;
+  border: none;
+  background-color: var(--color-felicra);
 }
 #pelea-resultado{
-  color: #f59622 ;
+  color: #f59622;
   font-size: 3.6rem;
 }
-.pelea-draw{
-  width: 275px;
-  height: 275px;
-  background-color: red;
-}
+
 #pelea-contador{
   color: gray;
   font-size: 2.45rem;
 }
-#proyecto10{
-  background-color: #066300;
+#reinicio{
+  margin-top: 4rem;
+}
+/* Proyecto 10 */
+
+#galeria-container {
+  padding-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+}
+#galeria-filtros {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+#galeria {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  gap: 0.5rem;
+}
+.galeria-img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  cursor: pointer;
+  display: block;
+}
+.galeria-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+}
+.galeria-nombre {
+  font-size: 0.8rem;
+  text-align: center;
+}
+.galeria-oculta {
+  display: none;
+}
+#galeria-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 999;
+  justify-content: center;
+  align-items: center;
+}
+#galeria-modal.galeria-modal-abierto {
+  display: flex;
+}
+#galeria-modal-contenido {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+#galeria-modal-nombre {
+  color: white;
+  font-size: 1.5rem;
+}
+#galeria-modal-img {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
 }
