@@ -1,9 +1,9 @@
 /* Forzar font-display swap en Bootstrap Icons */
 @font-face {
   font-family: "bootstrap-icons";
+  src: url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/fonts/bootstrap-icons.woff2") format("woff2");
   font-display: swap;
 }
-
 /* Generales */
 :root{
   --color-felicra: #89C684;
@@ -137,7 +137,6 @@ nav {
   color: var(--color-felicra-dark);
   background-color: var(--color-felicra) !important;
 }
-/* Sidebar responsive */
 @media (width < 500px) {
   #lista-nav{
     width: 100%;
@@ -158,11 +157,8 @@ nav {
     display: none;
   }
 }
-
 /* Inicio */
-
 /* header */
-
 header{
   min-height: 100vh;
   width: 100%;
@@ -217,7 +213,6 @@ header{
 #boton-right{
   display: none;
 }
-/* Header responsive */
 @media (width <  1100px){
   .header-left{
     padding-right: 0;
@@ -259,7 +254,6 @@ header{
     max-width: 100%;
   }
 }
-
 /* Lista de proyectos dentro de la "pagina" de inicio */
 #lista-proyectos{
   padding: 8rem 0;
@@ -349,7 +343,6 @@ header{
   font-size: 7rem;
   border-color: var(--color-felicra-dark) var(--color-felicra) var(--color-felicra) var(--color-felicra-dark);
 }
-
 @media (width < 1000px) {
   .proyecto-info{
     flex-direction: column;
@@ -401,7 +394,6 @@ header{
 /* 
 PROYECTOS
 */
-
 .proyecto{
   min-height: 100vh;
   width: 100%;
@@ -413,7 +405,6 @@ PROYECTOS
   padding-top: 4rem;
   flex-wrap: wrap;
 }
-
 /* Proyecto 1*/
 #contador-container{
   display: flex;
@@ -442,7 +433,6 @@ PROYECTOS
 .contador-draw{
   height: 175px;
   width: 175px;
-  /* background-color: var(--color-felicra); */
 }
 #contador-below{
   display: flex;
@@ -452,8 +442,6 @@ PROYECTOS
 #contador-below img{
   cursor: pointer;
 }
-
-
 @media (width < 900px){
   .contador-draw{
     width: 100px;
@@ -477,10 +465,7 @@ PROYECTOS
     width: 100%;
   }
 }
-
-
 /* Proyecto 2 */
-
 #todolist-container{
   width: 700px;
   min-height: 500px;
@@ -521,12 +506,10 @@ PROYECTOS
   cursor: pointer;
   user-select: none;
 }
-/* Lista de tareas */
 #todolist{
   width: 80%;
   margin-top: 20px;
 }
-/* Tareas */
 .tarea{
   width: 100%;
   min-width: 70px;
@@ -547,7 +530,6 @@ PROYECTOS
     flex-direction: column;
   }
 }
-/* Tarea Completada */
 .completada{
   text-decoration: line-through;
   background-color: black;
@@ -556,7 +538,6 @@ PROYECTOS
   max-width: 350px;
   text-align: start;
 }
-/* Iconos */
 .iconos{
   display: flex;
 }
@@ -575,7 +556,6 @@ PROYECTOS
 .icono-eliminar:hover{
   background-color: rgba(255,255,255, 0.523);
 }
-
 /* Proyecto 3 */
 #adivinar-container{
   display: flex;
@@ -590,11 +570,9 @@ PROYECTOS
   align-items: center;
   gap: 1rem;
 }
-
 #adivinar-respuesta{
   font-size: 1.6rem;
 }
-
 #adivinar-interactivo{
   display: flex;
   flex-direction: column;
@@ -678,7 +656,6 @@ PROYECTOS
 #adivinar-input:focus{
   outline: none;
 }
-
 /* Proyecto 4 */
 .calculadora{
   background-color: var(--color-felicra);
@@ -706,16 +683,13 @@ PROYECTOS
 .pantalla::-webkit-scrollbar {
   height: 6px; 
 }
-
 .pantalla::-webkit-scrollbar-track {
   background: transparent;
 }
-
 .pantalla::-webkit-scrollbar-thumb {
   background: #555; 
   border-radius: 3px;
 }
-
 .pantalla::-webkit-scrollbar-thumb:hover {
   background: #888;
 }
@@ -739,10 +713,7 @@ PROYECTOS
 #igual {
   grid-row: span 2;
 }
-
-
 /* Proyecto 5 */
-/* Contenedor */
 #hex-etc{
   display: flex;
   width: 100%;
@@ -766,13 +737,11 @@ PROYECTOS
     gap: 4rem;
   }
 }
-/* texto */
 #hex{
   font-size: 70px;
   font-weight: bold;
   user-select: none;
 }
-/* boton */
 #hex-botones{
   width: 100%;
   display: flex;
@@ -922,7 +891,6 @@ nav.fondo-oscuro #right{
 #modo-oscuro-luna{
   display: none;
 }
-
 /* Proyecto 9 */
 #pelea-container #reinicio{
   width: 12rem;
@@ -967,7 +935,6 @@ nav.fondo-oscuro #right{
   color: #f59622;
   font-size: 3.6rem;
 }
-
 #pelea-contador{
   color: gray;
   font-size: 2.45rem;
@@ -976,7 +943,6 @@ nav.fondo-oscuro #right{
   margin-top: 4rem;
 }
 /* Proyecto 10 */
-
 #galeria-container {
   padding-top: 4rem;
   display: flex;
