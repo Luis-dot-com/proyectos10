@@ -345,11 +345,17 @@ header{
   border: 5px solid;
   border-color: var(--color-felicra) var(--color-felicra-dark) var(--color-felicra-dark) var(--color-felicra);
   background-color: var(--color-felicra);
-  font-size: 8rem;
+}
+#boton-respeto svg{
+  width: 8rem;
+  height: 8rem;
 }
 #boton-respeto:active{
-  font-size: 7rem;
   border-color: var(--color-felicra-dark) var(--color-felicra) var(--color-felicra) var(--color-felicra-dark);
+}
+#boton-respeto:active svg{
+  width: 7rem;
+  height: 7rem;
 }
 footer{
   width: 100%;
