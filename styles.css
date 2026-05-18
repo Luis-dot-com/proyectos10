@@ -9,7 +9,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Comic Neue", cursive, sans-serif;
+  font-family: "Comic Neue", "Comic Sans MS", cursive;
 }
 html {
   overflow-y: overlay;
@@ -301,7 +301,7 @@ header{
   align-items: center;
 }
 .proyecto-right p{
-  font-size: 1.6rem;
+  font-size: 1.3rem;
   height: 120px;
 }
 .proyecto-boton{
