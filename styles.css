@@ -111,6 +111,10 @@ nav {
   height: 2rem;
   cursor: pointer;
 }
+#menu svg{
+  width: 32px;
+  height: 32px;
+}
 .iconos-nav{
   display: flex;
   align-items: center;
@@ -126,8 +130,8 @@ nav {
   user-select: none;
   transition: color 0.5s ease;
 }
-.iconos-nav i{
-  font-size: 1.6rem;
+.iconos-nav svg{
+  width: 25.6px;
   height: 25.6px;
 }
 #sidebar li:hover{
@@ -562,16 +566,10 @@ PROYECTOS
 .iconos{
   display: flex;
 }
-.iconos i{
+.iconos img{
   margin: 5px;
   padding: 10px;
   cursor: pointer;
-}
-.icono-completar{
-  color: rgb(0, 255, 0);
-}
-.icono-eliminar{
-  color: white;
 }
 .icono-completar:hover,
 .icono-eliminar:hover{
